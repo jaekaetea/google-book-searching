@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -19,4 +19,25 @@
 
 .App-link {
   color: #09d3ac;
+} */
+
+.jumbotron {
+  text-align: center;
+}
+
+img {
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+#bookSearch {
+  margin-bottom: 20px;
+}
+
+button {
+  float: right;
+}
+
+button.btn-primary {
+  margin-top: -10px;
 }
