@@ -41,7 +41,7 @@ class Results extends Component {
             title: book.title,
             author: book.author,
             description: book.description,
-            previewLink: book.description,
+            previewLink: book.previewLink,
             imgLink: book.imgLink
         };
         API.saveBook({ bookData })
@@ -67,11 +67,11 @@ class Results extends Component {
                         key={book.id}
                         id={book.id}
                         saveBook={this.saveBook}
-                        title={book.volumeInfo.title || ""}
-                        author={book.volumeInfo.authors.join(", ") || ""}
-                        description={book.volumeInfo.description || ""}
-                        previewLink={book.volumeInfo.previewLink || ""}
-                        imgLink={book.volumeInfo.imageLinks.smallThumbnail != undefined ? book.volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150x200"} 
+                        title={book.volumeInfo.title}
+                        author={book.volumeInfo.authors.join(", ")}
+                        description={book.volumeInfo.description}
+                        previewLink={book.volumeInfo.previewLink}
+                        imgLink={book.volumeInfo.imageLinks.smallThumbnail || "https://via.placeholder.com/150x200"} 
                     />
                 )})}
             </div>

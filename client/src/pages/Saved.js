@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Jumbo from "../components/Jumbo";
+import Save from "../components/Save";
 
 class Saved extends Component {
     render() {
         return (
             <div>
                 <Jumbo />
-                <p>This is the Saved Page</p>
+                <Save />
             </div>
         );
     }
