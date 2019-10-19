@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import BookSearch from "./BookSearch";
 import API from "../utils/API";
 import ResultList from "./ResultList";
@@ -12,14 +11,11 @@ class Results extends Component {
 
     componentDidMount() {
         console.log("It's mounted");
-        //this.searchBooks("Harry Potter");
     };
 
     searchBooks = query => {
         API.search(query)
             .then(res => {
-                //this.setState({ results: res.data });
-                console.log(res);
                 this.setState({ results: res.data.items });
             })
             .catch(err => console.log(err));
@@ -40,16 +36,21 @@ class Results extends Component {
 
     saveBook = book => {
         console.log(book);
-        API.saveBook({
+        const bookData = {
             id: book.id,
             title: book.title,
             author: book.author,
             description: book.description,
-            previewLink: book.previewLink,
+            previewLink: book.description,
             imgLink: book.imgLink
-        })
-            .then(res => console.log(res + "yasss"))
+        };
+        API.saveBook({ bookData })
+            .then(res => this.loadBooks())
             .catch(err => console.log(err));
+    };
+
+    loadBooks = () => {
+        console.log("kewl");
     };
 
     render() {
@@ -67,7 +68,7 @@ class Results extends Component {
                         id={book.id}
                         saveBook={this.saveBook}
                         title={book.volumeInfo.title || ""}
-                        author={book.volumeInfo.authors || ""}
+                        author={book.volumeInfo.authors.join(", ") || ""}
                         description={book.volumeInfo.description || ""}
                         previewLink={book.volumeInfo.previewLink || ""}
                         imgLink={book.volumeInfo.imageLinks.smallThumbnail != undefined ? book.volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150x200"} 

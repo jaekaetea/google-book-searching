@@ -6,13 +6,13 @@ export default {
     search: function(query) {
         return axios.get(BASEURL + query);
     },
-    getBook: function(id) {
-        return axios.get("/api/books/" + id);
+    getBooks: function(id) {
+        return axios.get("/api/books");
     },
     deleteBook: function(id) {
         return axios.delete("/api/books/" + id);
     },
     saveBook: function(bookData) {
-        return axios.post("/api/books", bookData);
+        return axios.post("/api/books", bookData.bookData);
     }
 };
