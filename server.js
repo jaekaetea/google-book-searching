@@ -17,7 +17,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/googlelist"
+  process.env.MONGODB_URI || "mongodb://username:password1@ds149124.mlab.com:49124/heroku_qc0730tn"
 );
 
 // Start the API server
