@@ -37,7 +37,7 @@ class Results extends Component {
                         id={book._id}
                         deleteBook={this.deleteBook}
                         title={book.title || ""}
-                        author={book.authors}
+                        author={book.author}
                         description={book.description}
                         previewLink={book.previewLink}
                         imgLink={book.imgLink || "https://via.placeholder.com/150x200"} 
