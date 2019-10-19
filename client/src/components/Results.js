@@ -45,12 +45,8 @@ class Results extends Component {
             imgLink: book.imgLink
         };
         API.saveBook({ bookData })
-            .then(res => this.loadBooks())
+            .then(res => alert('"' + res.data.title + '"' + " has been saved."))
             .catch(err => console.log(err));
-    };
-
-    loadBooks = () => {
-        console.log("kewl");
     };
 
     render() {
@@ -68,10 +64,10 @@ class Results extends Component {
                         id={book.id}
                         saveBook={this.saveBook}
                         title={book.volumeInfo.title}
-                        author={book.volumeInfo.authors.join(", ")}
-                        description={book.volumeInfo.description}
+                        author={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Author Unavailable."}
+                        description={book.volumeInfo.description ? book.volumeInfo.description : ""}
                         previewLink={book.volumeInfo.previewLink}
-                        imgLink={book.volumeInfo.imageLinks.smallThumbnail || "https://via.placeholder.com/150x200"} 
+                        imgLink={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/130x175"} 
                     />
                 )})}
             </div>

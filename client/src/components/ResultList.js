@@ -10,7 +10,7 @@ function ResultList(props) {
                 </button>
                 <p>{props.title}</p>
                 <p>{props.author}</p>
-                <img src={props.imgLink || "https://via.placeholder.com/150x200"} />
+                <img src={props.imgLink} />
                 <p>{props.description}</p>
             </div>
         </div>
